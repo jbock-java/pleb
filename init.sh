@@ -16,8 +16,8 @@ mount -t sysfs none /sys
 mount -n -t tmpfs none /dev
 mknod /dev/console c 5 1
 
-echo Hello World!
-sleep 5
+echo "Hello World!" > /dev/kmsg
+sleep inf
 poweroff -f
 EOF
 chmod +x init
