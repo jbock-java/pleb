@@ -4,20 +4,21 @@
   exit 1
 }
 
-debootstrap --include=efitools bookworm system
+[[ -d system ]] || {
+  debootstrap --include=efitools bookworm system
+}
 
-cd system
-rm sbin/init
-cat << EOF >> init
+rm -f system/sbin/init
+cat << EOF >> system/init
 #!/bin/bash
+mount -t devtmpfs none /dev
 mkdir -p /proc /sys
 mount -t proc none /proc
 mount -t sysfs none /sys
 mount -n -t tmpfs none /dev
-mknod /dev/console c 5 1
 
 echo "Hello World!" > /dev/kmsg
 sleep inf
 poweroff -f
 EOF
-chmod +x init
+chmod +x system/init
