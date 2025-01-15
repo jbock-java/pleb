@@ -10,4 +10,4 @@
 }
 
 cd system
-find . | cpio -o --format=newc > ../ramdisk.cpio
+find . | cpio -o --format=newc | gzip -9 > ../ramdisk.cpio.gz
