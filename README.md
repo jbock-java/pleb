@@ -5,3 +5,10 @@
 [James Gibbard](https://www.gibbard.me/linux_initramfs_initrd/)
 
 [How to populate dev](https://unix.stackexchange.com/questions/52713/how-to-populate-dev-directory-when-building-my-own-initrd)
+
+### Building
+
+```
+sudo ./init.sh
+sudo ./build.sh
+```
