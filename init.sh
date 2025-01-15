@@ -4,7 +4,7 @@
   exit 1
 }
 
-debootstrap bookworm system
+debootstrap --include=efitools bookworm system
 
 cd system
 rm sbin/init
