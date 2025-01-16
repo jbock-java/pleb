@@ -5,7 +5,7 @@
 }
 
 [[ -d system ]] || {
-  debootstrap --include=efitools bookworm system
+  debootstrap --include=efitools,kbd bookworm system
 }
 
 rm -f system/sbin/init
