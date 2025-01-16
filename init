@@ -4,5 +4,17 @@ mkdir -p /proc /sys
 mount -t proc none /proc
 mount -t sysfs none /sys
 
-echo "Hello World!" > /dev/kmsg
-exec /bin/bash
+get_kernel_param_debug() {
+  grep -o 'pleb.debug=[[:digit:]]*' /proc/cmdline | cut -d= -f2
+}
+
+[[ "$(get_kernel_param_debug)" = "1" ]] && {
+  exec /bin/bash
+}
+
+exec 1>/dev/console
+exec 2>&1
+while true; do
+  date
+  sleep 5
+done

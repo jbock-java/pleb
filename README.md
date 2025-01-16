@@ -9,6 +9,6 @@
 ### Building
 
 ```
-sudo ./init.sh
+sudo ./install.sh
 sudo ./build.sh
 ```
