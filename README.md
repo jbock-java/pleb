@@ -10,5 +10,5 @@
 
 ```
 sudo ./install.sh
-sudo ./build.sh
+make build
 ```

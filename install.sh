@@ -1,11 +1,14 @@
 #!/bin/bash
-[[ $EUID > 0 ]] && {
-  echo "run as root"
+[[ $EUID -eq 0 ]] && {
+  echo "run as normal user"
   exit 1
 }
 
+OG_USER=$(whoami)
+
 [[ -d system ]] || {
-  debootstrap --include=efitools,kbd bookworm system
+  sudo debootstrap --include=efitools,kbd bookworm system
+  sudo chown -R ${OG_USER}: system
 }
 
 rm -f system/sbin/init
