@@ -9,6 +9,6 @@
 ### Building
 
 ```
-sudo ./install.sh
+./install.sh
 make build
 ```
