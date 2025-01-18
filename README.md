@@ -8,6 +8,8 @@
 
 [systemd-nspawn](https://wiki.archlinux.org/title/Systemd-nspawn)
 
+[Using chroot](https://wiki.archlinux.org/title/Chroot)
+
 ### Building
 
 ```
