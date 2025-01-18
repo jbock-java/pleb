@@ -16,3 +16,22 @@
 ./install.sh
 make build
 ```
+
+### Fedora
+
+```
+mkdir rootfs #on btrfs: btrfs subvolume create rootfs
+cd rootfs
+mount -tproc /proc proc/
+mount -obind -tsysfs /sys sys/
+mount -obind /dev dev/
+mount -obind /run run/
+cd ..
+dnf --use-host-config --releasever=41 --best --setopt=install_weak_deps=False --repo=fedora --repo=updates --installroot=/root/workspace/ramfs/rootfs install dhcp-client dnf fedora-release glibc glibc-langpack-en iputils less ncurses passwd systemd systemd-networkd systemd-resolved util-linux vim-default-editor
+umount rootfs/proc
+umount rootfs/sys
+umount rootfs/dev
+umount rootfs/run
+#edit rootfs/etc/shadow
+systemd-nspawn -b -D rootfs
+```
