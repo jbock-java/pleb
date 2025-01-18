@@ -6,6 +6,8 @@
 
 [How to populate dev](https://unix.stackexchange.com/questions/52713/how-to-populate-dev-directory-when-building-my-own-initrd)
 
+[systemd-nspawn](https://wiki.archlinux.org/title/Systemd-nspawn)
+
 ### Building
 
 ```
