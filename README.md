@@ -44,5 +44,11 @@ find /usr/lib/systemd/system/ -name "*dracut*" -exec rm -rf '{}' ';'
 
 ./run
 
-vi rootfs/usr/lib/dracut-lib.sh # modify "die" method
+#If there's an error:
+#
+#cat rootfs/var/lib/dracut/hooks/emergency/01-die.sh
+#
+#also possible:
+#
+#vi rootfs/usr/lib/dracut-lib.sh # modify "die" method
 ```
