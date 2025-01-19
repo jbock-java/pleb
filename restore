@@ -1,0 +1,3 @@
+#!/bin/bash
+cd rootfs
+cpio -id < ../initrd.img
