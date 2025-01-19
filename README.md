@@ -35,3 +35,12 @@ umount rootfs/run
 #edit rootfs/etc/shadow
 systemd-nspawn -b -D rootfs
 ```
+
+### root shell in initrd from installation media
+
+```
+./inspect
+find /usr/lib/systemd/system/ -name "*dracut*" -exec rm -rf '{}' ';'
+
+./run
+```
