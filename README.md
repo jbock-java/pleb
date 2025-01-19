@@ -43,4 +43,6 @@ systemd-nspawn -b -D rootfs
 find /usr/lib/systemd/system/ -name "*dracut*" -exec rm -rf '{}' ';'
 
 ./run
+
+vi rootfs/usr/lib/dracut-lib.sh # modify "die" method
 ```
