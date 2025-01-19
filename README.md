@@ -36,19 +36,16 @@ umount rootfs/run
 systemd-nspawn -b -D rootfs
 ```
 
-### root shell in initrd from installation media
+### Get root shell in initrd from installation media
+
+If `./run` aborts and does not give you a root shell:
+
+In `rootfs/usr/lib/dracut-lib.sh`,
+modify `die` function to look like this:
 
 ```
-./inspect
-find /usr/lib/systemd/system/ -name "*dracut*" -exec rm -rf '{}' ';'
-
-./run
-
-#If there's an error:
-#
-#cat rootfs/var/lib/dracut/hooks/emergency/01-die.sh
-#
-#also possible:
-#
-#vi rootfs/usr/lib/dracut-lib.sh # modify "die" method
+die() {
+  emergency_shell
+  exit 1
+}
 ```
