@@ -1,3 +1,4 @@
 #!/bin/bash
 cd rootfs
+ls -A1 | xargs rm -rf
 cpio -id < ../initrd.img
